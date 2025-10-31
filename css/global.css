@@ -1,5 +1,12 @@
 body{
     font-family: "Nunito", sans-serif;
+    scroll-behavior: auto!important;
+}
+html{
+    scroll-behavior: auto!important;
+}
+*{
+    scroll-behavior: auto!important;
 }
 :root{
     --main-color:#CB0215;
