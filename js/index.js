@@ -66,8 +66,7 @@ navLinks.forEach((navLink) => {
         let currentSection = document.querySelector(`${idOfCurrentSection}`);
         let currentSectionTop = currentSection.getBoundingClientRect().top + window.scrollY-heightOfNav;
         window.scrollTo({
-            top: currentSectionTop,
-            behavior: "smooth"
+            top: currentSectionTop
         });
 
     })
@@ -256,3 +255,18 @@ btnOpenInfo.forEach((item) => {
     item.addEventListener("click", showPopUpInfo)
 });
 showInCart();
+const lenis = new Lenis({
+  duration: 1.4,            // زودها شوية علشان التمرير يكون أطول وأهدأ
+  smooth: true,
+  easing: (t) => 1 - Math.pow(2, -10 * t),  // انسيابية تدريجية بدون توقف مفاجئ
+  direction: 'vertical',
+  smoothTouch: true,        // خليه كمان يشتغل ناعم في الموبايل
+  touchMultiplier: 1.5,     // بيخلي حركة الماوس واللمس أنعم
+  infinite: false,
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
